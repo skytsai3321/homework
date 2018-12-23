@@ -3,16 +3,22 @@ package com.train
 import java.util.*
 
 fun main(args: Array<String>) {
-    val scanner = Scanner(System.`in`)
-    print("Please enter number of tickets: ")
-    val tickets = scanner.nextInt()
-    print("How many round-trip tickets: ")
-    val roundTrip = scanner.nextInt()
-    if (tickets > 0 && roundTrip > 0 && tickets >= roundTrip) {
-        val tic = TicketKo(tickets, roundTrip)
-        tic.cal()
+    //val scanner = Scanner(System.`in`)
+    var tickets = 0
+    while (tickets != -1) {
+        print("Please enter number of tickets: ")
+        tickets = readLine()!!.toInt()
+        if (tickets > 0 ) {
+            print("How many round-trip tickets: ")
+            val roundTrip = readLine()!!.toInt()
+            if (tickets > 0 && roundTrip > 0 && tickets >= roundTrip) {
+                val tic = TicketKo(tickets, roundTrip)
+                tic.cal()
+            } else {
+                println("輸入票值有誤!!!")
+            }
+        }
     }
-    println("輸入票值有誤!!!")
 
 }
 
